@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BookRouteImport } from './routes/book'
+import { Route as CleaningChecklistRouteImport } from './routes/cleaning-checklist'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as BookingConfirmationCodeRouteImport } from './routes/booking-confirmation.$code'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookRoute = BookRouteImport.update({
+  id: '/book',
+  path: '/book',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CleaningChecklistRoute = CleaningChecklistRouteImport.update({
+  id: '/cleaning-checklist',
+  path: '/cleaning-checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingConfirmationCodeRoute = BookingConfirmationCodeRouteImport.update({
+  id: '/booking-confirmation/$code',
+  path: '/booking-confirmation/$code',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/cleaning-checklist': typeof CleaningChecklistRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/service-areas': typeof ServiceAreasRoute
+  '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/cleaning-checklist': typeof CleaningChecklistRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/service-areas': typeof ServiceAreasRoute
+  '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/book': typeof BookRoute
+  '/cleaning-checklist': typeof CleaningChecklistRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/pricing': typeof PricingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/service-areas': typeof ServiceAreasRoute
+  '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/book'
+    | '/cleaning-checklist'
+    | '/contact'
+    | '/faq'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/service-areas'
+    | '/booking-confirmation/$code'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/book'
+    | '/cleaning-checklist'
+    | '/contact'
+    | '/faq'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/service-areas'
+    | '/booking-confirmation/$code'
+    | '/services/$slug'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/book'
+    | '/cleaning-checklist'
+    | '/contact'
+    | '/faq'
+    | '/pricing'
+    | '/privacy-policy'
+    | '/service-areas'
+    | '/booking-confirmation/$code'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BookRoute: typeof BookRoute
+  CleaningChecklistRoute: typeof CleaningChecklistRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  PricingRoute: typeof PricingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ServiceAreasRoute: typeof ServiceAreasRoute
+  BookingConfirmationCodeRoute: typeof BookingConfirmationCodeRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book': {
+      id: '/book'
+      path: '/book'
+      fullPath: '/book'
+      preLoaderRoute: typeof BookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cleaning-checklist': {
+      id: '/cleaning-checklist'
+      path: '/cleaning-checklist'
+      fullPath: '/cleaning-checklist'
+      preLoaderRoute: typeof CleaningChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking-confirmation/$code': {
+      id: '/booking-confirmation/$code'
+      path: '/booking-confirmation/$code'
+      fullPath: '/booking-confirmation/$code'
+      preLoaderRoute: typeof BookingConfirmationCodeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BookRoute: BookRoute,
+  CleaningChecklistRoute: CleaningChecklistRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  PricingRoute: PricingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ServiceAreasRoute: ServiceAreasRoute,
+  BookingConfirmationCodeRoute: BookingConfirmationCodeRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
