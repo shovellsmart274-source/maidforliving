@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CleaningChecklistRouteImport } from './routes/cleaning-checklist'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
@@ -23,6 +27,26 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CleaningChecklistRoute = CleaningChecklistRouteImport.update({
+  id: '/cleaning-checklist',
+  path: '/cleaning-checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiceAreasRoute = ServiceAreasRouteImport.update({
@@ -44,6 +68,10 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cleaning-checklist': typeof CleaningChecklistRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/pricing': typeof PricingRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -51,6 +79,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cleaning-checklist': typeof CleaningChecklistRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/pricing': typeof PricingRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
@@ -59,6 +91,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/cleaning-checklist': typeof CleaningChecklistRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/pricing': typeof PricingRoute
   '/service-areas': typeof ServiceAreasRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -66,13 +102,34 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about' | '/service-areas' | '/services/$slug' | '/services/'
+    | '/'
+    | '/about'
+    | '/cleaning-checklist'
+    | '/contact'
+    | '/faq'
+    | '/pricing'
+    | '/service-areas'
+    | '/services/$slug'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/service-areas' | '/services/$slug' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/cleaning-checklist'
+    | '/contact'
+    | '/faq'
+    | '/pricing'
+    | '/service-areas'
+    | '/services/$slug'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/cleaning-checklist'
+    | '/contact'
+    | '/faq'
+    | '/pricing'
     | '/service-areas'
     | '/services/$slug'
     | '/services/'
@@ -81,6 +138,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CleaningChecklistRoute: typeof CleaningChecklistRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  PricingRoute: typeof PricingRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -100,6 +161,34 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cleaning-checklist': {
+      id: '/cleaning-checklist'
+      path: '/cleaning-checklist'
+      fullPath: '/cleaning-checklist'
+      preLoaderRoute: typeof CleaningChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/service-areas': {
@@ -129,6 +218,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CleaningChecklistRoute: CleaningChecklistRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  PricingRoute: PricingRoute,
   ServiceAreasRoute: ServiceAreasRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
