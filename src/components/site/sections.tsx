@@ -19,7 +19,6 @@ import {
   Sparkles,
   Star,
   Users,
-  Wrench,
 } from "lucide-react";
 import aboutImg from "@/assets/about-family.jpg";
 import { Button } from "@/components/ui/button";
@@ -389,7 +388,7 @@ export function CtaBanner({ title = "Ready for a Spotless Home?", text }: { titl
             {text ?? "Get an instant estimate and book your cleaning online in just a few minutes."}
           </p>
           <div className="relative mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild size="xl" className="bg-background text-primary hover:bg-background/90">
+            <Button asChild size="xl" variant="light">
               <Link to="/book">BOOK NOW</Link>
             </Button>
             <Button asChild variant="glass" size="xl">
@@ -404,4 +403,3 @@ export function CtaBanner({ title = "Ready for a Spotless Home?", text }: { titl
   );
 }
 
-export { Wrench };

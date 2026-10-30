@@ -19,6 +19,7 @@ const buttonVariants = cva(
         hero: "bg-gradient-fresh text-primary-foreground shadow-elegant hover:-translate-y-0.5 hover:brightness-110",
         glass:
           "border border-primary-foreground/40 bg-primary-foreground/10 text-primary-foreground backdrop-blur hover:bg-primary-foreground/20",
+        light: "bg-background text-primary shadow-soft hover:bg-background/90",
         fresh: "bg-fresh text-fresh-foreground shadow-soft hover:brightness-105 hover:-translate-y-0.5",
       },
       size: {
