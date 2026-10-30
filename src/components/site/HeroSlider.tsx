@@ -37,6 +37,7 @@ export function HeroSlider() {
     return () => window.clearInterval(id);
   }, [index]);
 
+  const slide = SLIDES[index]!;
   const go = (d: number) => setIndex((i) => (i + d + SLIDES.length) % SLIDES.length);
 
   return (
@@ -66,15 +67,15 @@ export function HeroSlider() {
       <div className="container-page grid min-h-[calc(100svh-7.5rem)] items-center gap-10 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
         <div key={index} className="max-w-2xl text-ink-foreground">
           <span className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-ink-foreground/25 bg-ink-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
-            <span className="h-2 w-2 rounded-full bg-fresh" /> {SLIDES[index].eyebrow}
+            <span className="h-2 w-2 rounded-full bg-fresh" /> {slide.eyebrow}
           </span>
           {index === 0 ? (
             <h1 className="animate-fade-up mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl xl:text-7xl">
-              {SLIDES[index].title}
+              {slide.title}
             </h1>
           ) : (
             <p className="animate-fade-up mt-6 font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-              {SLIDES[index].title}
+              {slide.title}
             </p>
           )}
           <p className="animate-fade-up mt-6 max-w-xl text-base leading-relaxed text-ink-foreground/85 sm:text-lg [animation-delay:120ms]">

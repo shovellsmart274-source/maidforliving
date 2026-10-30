@@ -116,9 +116,6 @@ export function SiteFooter() {
             <Link to="/terms" className="hover:text-fresh">
               Terms &amp; Conditions
             </Link>
-            <Link to="/admin" className="hover:text-fresh">
-              Admin
-            </Link>
           </div>
         </div>
       </div>
