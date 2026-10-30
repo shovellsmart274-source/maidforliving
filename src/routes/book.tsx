@@ -97,13 +97,19 @@ function BookPage() {
 
   function next() {
     const err = validate(step);
-    if (err) return toast.error(err);
+    if (err) {
+      toast.error(err);
+      return;
+    }
     setStep((s) => Math.min(STEPS.length - 1, s + 1));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   async function confirm() {
-    if (!agree) return toast.error("Please confirm the booking details.");
+    if (!agree) {
+      toast.error("Please confirm the booking details.");
+      return;
+    }
     setLoading(true);
     try {
       const res = await book({ data: f });

@@ -25,12 +25,24 @@ export interface PublicTestimonial {
   review: string;
   is_sample: boolean;
 }
+export interface SiteSettings {
+  phone: string;
+  email: string;
+  address: string;
+  hours_weekdays: string;
+  hours_saturday: string;
+  hours_sunday: string;
+  facebook_url: string;
+  instagram_url: string;
+  twitter_url: string;
+  announcement: string;
+}
 export interface PublicData {
   services: PublicService[];
   pricing: { key: string; label: string; category: string; amount: number }[];
   areas: PublicArea[];
   testimonials: PublicTestimonial[];
-  settings: Record<string, string>;
+  settings: SiteSettings;
 }
 
 async function publicClient() {
@@ -68,7 +80,7 @@ export const getPublicData = createServerFn({ method: "GET" }).handler(async ():
     pricing: (pricing.data ?? []).map((p) => ({ ...p, amount: Number(p.amount) })),
     areas: areas.data ?? [],
     testimonials: testimonials.data ?? [],
-    settings: Object.fromEntries((settings.data ?? []).map((s) => [s.key, s.value])),
+    settings: Object.fromEntries((settings.data ?? []).map((s) => [s.key, s.value])) as unknown as SiteSettings,
   };
 });
 
