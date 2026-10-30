@@ -18,6 +18,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BookingConfirmationCodeRouteImport } from './routes/booking-confirmation.$code'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
@@ -67,6 +68,11 @@ const ServiceAreasRoute = ServiceAreasRouteImport.update({
   path: '/service-areas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookingConfirmationCodeRoute = BookingConfirmationCodeRouteImport.update({
   id: '/booking-confirmation/$code',
   path: '/booking-confirmation/$code',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/terms': typeof TermsRoute
   '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/terms': typeof TermsRoute
   '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/terms': typeof TermsRoute
   '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy-policy'
     | '/service-areas'
+    | '/terms'
     | '/booking-confirmation/$code'
     | '/services/$slug'
     | '/services/'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy-policy'
     | '/service-areas'
+    | '/terms'
     | '/booking-confirmation/$code'
     | '/services/$slug'
     | '/services'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy-policy'
     | '/service-areas'
+    | '/terms'
     | '/booking-confirmation/$code'
     | '/services/$slug'
     | '/services/'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
+  TermsRoute: typeof TermsRoute
   BookingConfirmationCodeRoute: typeof BookingConfirmationCodeRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceAreasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/booking-confirmation/$code': {
       id: '/booking-confirmation/$code'
       path: '/booking-confirmation/$code'
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServiceAreasRoute: ServiceAreasRoute,
+  TermsRoute: TermsRoute,
   BookingConfirmationCodeRoute: BookingConfirmationCodeRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
