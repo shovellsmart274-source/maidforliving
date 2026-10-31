@@ -18,6 +18,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BookingConfirmationCodeRouteImport } from './routes/booking-confirmation.$code'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -68,6 +69,11 @@ const ServiceAreasRoute = ServiceAreasRouteImport.update({
   path: '/service-areas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -130,6 +138,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/service-areas': typeof ServiceAreasRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/booking-confirmation/$code': typeof BookingConfirmationCodeRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -147,6 +156,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy-policy'
     | '/service-areas'
+    | '/sitemap.xml'
     | '/terms'
     | '/booking-confirmation/$code'
     | '/services/$slug'
@@ -162,6 +172,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy-policy'
     | '/service-areas'
+    | '/sitemap.xml'
     | '/terms'
     | '/booking-confirmation/$code'
     | '/services/$slug'
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/privacy-policy'
     | '/service-areas'
+    | '/sitemap.xml'
     | '/terms'
     | '/booking-confirmation/$code'
     | '/services/$slug'
@@ -193,6 +205,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ServiceAreasRoute: typeof ServiceAreasRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   BookingConfirmationCodeRoute: typeof BookingConfirmationCodeRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -264,6 +277,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceAreasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -305,6 +325,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ServiceAreasRoute: ServiceAreasRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   BookingConfirmationCodeRoute: BookingConfirmationCodeRoute,
   ServicesSlugRoute: ServicesSlugRoute,
