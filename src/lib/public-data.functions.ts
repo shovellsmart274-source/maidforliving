@@ -49,8 +49,9 @@ async function publicClient() {
   const { createClient } = await import("@supabase/supabase-js");
   // Hosts outside Lovable (e.g. Vercel) don't inject server env vars at runtime,
   // so fall back to the public values Vite inlines at build time.
-  const url = process.env["SUPABASE_URL"] || import.meta.env.VITE_SUPABASE_URL;
-  const key = process.env["SUPABASE_PUBLISHABLE_KEY"] || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  const url = process.env["SUPABASE_URL"] || (import.meta.env["VITE_SUPABASE_URL"] as string | undefined);
+  const key =
+    process.env["SUPABASE_PUBLISHABLE_KEY"] || (import.meta.env["VITE_SUPABASE_PUBLISHABLE_KEY"] as string | undefined);
   if (!url || !key) throw new Error("Backend connection is not configured.");
   return createClient(url, key, {
     auth: { storage: undefined, persistSession: false, autoRefreshToken: false },
